@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Adding{% endblock %}
+{% block content %}
+<main class="px-3">
+
+  <div>
+      <h1>Добавление</h1>
+  </div>
+  <form method="post" action="{% url 'adding' %}">
+    {% csrf_token %}
+    <!-- добавить в форму типы для определения -->
+    
+    <div>
+      <p class="lead">Discord id:</p>
+      <!-- input type="text" class="form-control" id="floatingInput" placeholder="discord id" -->
+      <input 
+      type="text"
+      name="discord_id"
+      autofocus=""
+      autocapitalize="none"
+      autocomplete="discord_id"
+      maxlength="150"
+      class="my-discord_id-class form-control"
+      required=""
+      id="discord_id"
+      placeholder="discord id"
+      />
+      <label for="floatingInput"> </label>
+    </div>
+    <div>
+      <p class="lead">Имя:</p>
+      <input 
+      type="text"
+      name="name"
+      autofocus=""
+      autocapitalize="none"
+      autocomplete="name"
+      maxlength="150"
+      class="my-name-class form-control"
+      required=""
+      id="name"
+      placeholder="name"
+      />
+      <label for="floatingPassword"> </label>
+    </div>
+    <div class="dropdown">
+      <p class="lead">Откуда узнал про сервер:</p>
+      
+
+      <select class="btn btn-secondary dropdown-toggle btnbackgroundcolorwhite bg-white w-100" name="fromWhereKnows" required="" id="id_fromWhereKnows">
+        {% for choice1, choice2 in KNOW_CHOICES %}
+          <option value="{{ choice1 }}">{{ choice2 }}</option>
+        {% endfor %}
+      
+      </select>
+    </div>
+  <div style="margin: 1.5em 0px 0px 0px;"></div>
+
+
+  <p class="lead">
+    <button type="submit" class="btn btn-lg btn-secondary fw-bold border-white bg-white"> Add </button>
+  </p>
+  </form>
+</main>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Auth{% endblock %}
+{% block content %}
+  <main class="px-3">
+    <h1>eternal authentification</h1>
+    <p class="lead">This might be helpful. Moder permissions are required.</p>
+    <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div>
+      
+      <input 
+      type="text"
+      name="username"
+      autofocus=""
+      autocapitalize="none"
+      autocomplete="username"
+      maxlength="150"
+      class="my-username-class form-control"
+      required=""
+      id="id_username"
+      placeholder="login"
+      />
+      <label for="floatingInput"> </label>
+
+    </div>
+    <div>
+      
+      <input 
+      type="password"
+      name="password"
+      autofocus=""
+      autocapitalize="none"
+      autocomplete="password"
+      maxlength="150"
+      class="my-password-class form-control"
+      required="" 
+      placeholder="password"
+      id="id_password"
+      />
+      <label for="floatingPassword"> </label>
+    </div>
+    <button type="submit" class="btn btn-lg btn-secondary fw-bold border-white bg-white"> Log in </button>
+    </form>
+
+  </main>
+  {% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Detail Information{% endblock %}
+{% block content %}
+
+<dl class="holiday">
+    {% for atr, value in info %}
+    <dt>{{ atr }}</dt><dd>{{ value }}</dd>
+    {% endfor %}
+  </dl>
+
+<a href="{% url 'info-delete' pk %}"><button class="btn btn-lg btn-secondary fw-bold border-white bg-white"> Удалить </button></a>
+
+{% endblock %}

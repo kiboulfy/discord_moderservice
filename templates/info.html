@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Information{% endblock %}
+{% block content %}
+
+<ol class="rounded">
+{% for adding in addings %}
+    <li><a href="{% url 'info-detail' adding.pk %}">{{adding}}</a></li>
+{% endfor %}
+</ol>
+
+{% endblock %}
